@@ -1,0 +1,14 @@
+{
+  "name": "coffee-recipe-tracker-api",
+  "version": "0.0.1",
+  "description": "Backend database and API for a coffee recipe tracker app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "coffee"
+  ],
+  "author": "dAVE Inden - www.daveinden.com",
+  "license": "MIT"
+}
