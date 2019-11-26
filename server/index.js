@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const globalMiddleware = require('./middleware/global');
 const api = require('./api');
