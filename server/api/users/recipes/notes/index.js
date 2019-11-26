@@ -1,7 +1,7 @@
 const notes = require('express').Router();
 
 notes.get('/', (req, res) => {
-    res.status(200).json({ message: 'Response from /api/users/:userId/recipes/:recipeId/notes'});
+    res.status(200).json({ message: 'Response from /api/users/:userId/recipes/:recipeId/notes' });
 });
 
 
