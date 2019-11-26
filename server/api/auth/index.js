@@ -1,12 +1,12 @@
 const auth = require('express').Router();
 const bcrypt = require('bcryptjs');
-const { generateJWT, Users } = require('../../../utlis');
+const { generateJWT, DB } = require('../../../utils');
 const { validateUser } = require('../../middleware/custom');
 
 auth.post('/login', validateUser, (req, res) => {
     const { username, password } = req.body;
 
-    Users.findByUserNameForLogin(username)
+    DB.search('users', 'username', username)
         .then(user => {
             if (user && bcrypt.compareSync(password, user.password)) {
                 const token = generateJWT(user.id);
@@ -23,10 +23,10 @@ auth.post('/register', validateUser, (req, res) => {
     const hashedPassword = bcrypt.hashSync(newUser.password, 10);
     newUser.password = hashedPassword;
 
-    Users.add(newUser)
+    DB.add('users',newUser)
         .then(savedUser => {
             const token = generateJWT(savedUser.id);
-            res.status(201).json({ ...savedUser, token });
+            res.status(201).json({ id: savedUser.id, username: savedUser.username, token });
         })
         .catch(err => res.status(500).json({ message: 'There was an error saving the user.', error: err.message }));
 });

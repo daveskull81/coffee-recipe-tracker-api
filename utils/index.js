@@ -1,9 +1,9 @@
 const convertNumBoolean = require('./convertNumBoolean');
-const Users = require('./db-users');
 const generateJWT = require('./generateJWT');
+const DB = require('./db-helpers');
 
 module.exports = {
     convertNumBoolean,
-    Users,
-    generateJWT
+    generateJWT,
+    DB
 };
