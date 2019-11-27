@@ -1,9 +1,9 @@
 const auth = require('express').Router();
 const bcrypt = require('bcryptjs');
 const { generateJWT, DB } = require('../../../utils');
-const { validateUser } = require('../../middleware/custom');
+const { validateUserObject } = require('../../middleware/custom');
 
-auth.post('/login', validateUser, (req, res) => {
+auth.post('/login', validateUserObject, (req, res) => {
     const { username, password } = req.body;
 
     DB.search('users', 'username', username)
@@ -19,7 +19,7 @@ auth.post('/login', validateUser, (req, res) => {
         .catch(err => res.status(500).json({ message: 'There was an error logging in the user.', error: err.message }));
 });
 
-auth.post('/register', validateUser, (req, res) => {
+auth.post('/register', validateUserObject, (req, res) => {
     const newUser = req.body;
     const hashedPassword = bcrypt.hashSync(newUser.password, 10);
     newUser.password = hashedPassword;

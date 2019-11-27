@@ -33,10 +33,12 @@ exports.up = function(knex) {
   })
   .createTable('recipes', tbl => {
       tbl.increments();
+      tbl.string('name', 255).notNullable();
       tbl.float('coffee_weight');
       tbl.float('total_weight');
       tbl.integer('bloom');
       tbl.integer('bloom_time');
+      tbl.integer('bloom_weight');
       tbl.integer('time_minutes');
       tbl.integer('time_seconds');
       tbl.string('grind_size');
@@ -77,7 +79,7 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.dropTableIfExists('notes')
+  return knex.schema.dropTableIfExists('notes')
     .dropTableIfExists('recipes')
     .dropTableIfExists('methods')
     .dropTableIfExists('coffees')
