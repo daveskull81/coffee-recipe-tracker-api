@@ -1,15 +1,13 @@
-const validateUser = require('./validateUser');
-const addUserId = require('./addUserId');
+const validateUserObject = require('./validateUserObject');
 const validateJWT = require('./validateJWT');
-const addRecipeId = require('./addRecipeId');
-const validateMethodId = require('./validateMethodId');
 const validateMethodObject = require('./validateMethodObject');
+const validateId = require('./validateId');
+const addParamToReqObj = require('./addParamToReqObj');
 
 module.exports = {
-    validateUser,
-    addUserId,
+    validateUserObject,
     validateJWT,
-    addRecipeId,
-    validateMethodId,
-    validateMethodObject
+    validateMethodObject,
+    validateId,
+    addParamToReqObj
 };
