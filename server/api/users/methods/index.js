@@ -1,0 +1,50 @@
+const methods = require('express').Router();
+const { DB } = require('../../../../utils');
+const { validateMethodId, validateMethodObject } = require('../../../middleware/custom');
+
+methods.get('/', (req, res) => {
+    DB.search('methods', 'user_id', req.userId)
+        .then(results => {
+            const methods = results.map(result => ({ id: result.id, name: result.name }));
+            res.status(200).json(methods);
+        })
+        .catch(err => res.status(500).json({ message: 'There was an error getting the user\'s methods.', error: err.message }));
+});
+
+methods.post('/', validateMethodObject, (req, res) => {
+    DB.add('methods', req.body)
+        .then(result => {
+            const newMethod = { id: result.id, name: result.name };
+            res.status(201).json(newMethod);
+        })
+        .catch(err => res.status(500).json({ message: 'There was an error adding the new method.', error: err.message }));
+});
+
+methods.get('/:methodId', validateMethodId, (req, res) => {
+    DB.findById('methods', req.params.methodId)
+        .then(result => {
+            const method = { id: result.id, name: result.name };
+            res.status(200).json(method);
+        })
+        .catch(err => res.status(500).json({ message: 'There was an error getting the method for the user.', error: err.message }));
+});
+
+methods.put('/:methodId', validateMethodObject, validateMethodId, (req, res) => {
+    DB.update('methods', req.body, req.params.methodId)
+        .then(result => {
+            const method = { id: result.id, name: result.name };
+            res.status(200).json(method);
+        })
+        .catch(err => res.status(500).json({ message: 'There was an error updating the method.', error: err.message }));
+});
+
+methods.delete('/:methodId', validateMethodId, (req, res) => {
+    DB.remove('methods', req.params.methodId)
+        .then(result => {
+            const deletedMethod = { id: result.id, name: result.name };
+            res.status(200).json(deletedMethod);
+        })
+        .catch(err => res.status(500).json({ message: 'There was an error deleting the method.', error: err.message }));
+});
+
+module.exports = methods;
