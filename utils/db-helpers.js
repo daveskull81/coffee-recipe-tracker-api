@@ -18,8 +18,7 @@ const findAll = (tbl) => {
 
 const search = (tbl, field, value) => {
     return db(tbl)
-            .where(field, value)
-            .first();
+            .where(field, value);
 };
 
 const update = (tbl, updates, id) => {

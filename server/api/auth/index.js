@@ -7,7 +7,8 @@ auth.post('/login', validateUser, (req, res) => {
     const { username, password } = req.body;
 
     DB.search('users', 'username', username)
-        .then(user => {
+        .then(results => {
+            const [ user ] = results;
             if (user && bcrypt.compareSync(password, user.password)) {
                 const token = generateJWT(user.id);
                 res.status(200).json({ id: user.id, username: user.username, token });

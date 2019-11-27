@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
                 if (decodedToken.userId === Number(req.userId)) {
                     next();
                 } else {
-                    res.status(401).json({ message: 'Access to this user data is unauthorized' });
+                    res.status(401).json({ message: 'Access to this data is unauthorized' });
                 };
             };
         });
