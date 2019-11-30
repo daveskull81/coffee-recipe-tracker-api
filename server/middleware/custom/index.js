@@ -5,6 +5,7 @@ const validateId = require('./validateId');
 const addParamToReqObj = require('./addParamToReqObj');
 const validateCoffeeObject = require('./validateCoffeeObject');
 const validateRecipeObject = require('./validateRecipeObject');
+const validateNoteObject = require('./validateNoteObject');
 
 module.exports = {
     validateUserObject,
@@ -13,5 +14,6 @@ module.exports = {
     validateId,
     addParamToReqObj,
     validateCoffeeObject,
-    validateRecipeObject
+    validateRecipeObject,
+    validateNoteObject
 };
