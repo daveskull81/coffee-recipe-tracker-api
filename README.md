@@ -38,6 +38,10 @@ This repo is setup for running the application from Heroku. The following enviro
 DB_ENV=production
 JWT_SECRET=coffee
 ```
+### Testing
+
+Tests are implemented with Jest and Supertest. To start Jest in watch mode run `npm test` from the root directory in your command line.
+
 ## License
 
 This project is licensed under the terms of the MIT license. For more details see the [LICENSE](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/LICENSE) file.
