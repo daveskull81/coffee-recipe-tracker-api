@@ -18,6 +18,14 @@ This project is used as a portfolio piece for my work as a Software Developer. I
 * JSON Web Tokens for authentication and protecting routes from public access
 * Backend testing with Jest and Supertest
 
+## API Documentation
+
+For documentation on available API endpoints please see the [API Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/APIDOCS.md).
+
+## Data Model
+
+For information on the data model for this project please see the [Data Model Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/DATAMODEL.md).
+
 ## Installation
 
 Fork and clone the repository.  
@@ -38,17 +46,9 @@ This repo is setup for running the application from Heroku. The following enviro
 DB_ENV=production
 JWT_SECRET=coffee
 ```
-### Testing
+## Testing
 
 Tests are implemented with Jest and Supertest. To start Jest in watch mode run `npm test` from the root directory in your command line.
-
-### API Documentation
-
-For documentation on available API endpoints please see the [API Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/APIDOCS.md).
-
-### Data Model
-
-For information on the data model for this project please see the [Data Model Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/DATAMODEL.md).
 
 ## License
 
