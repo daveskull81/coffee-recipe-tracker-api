@@ -42,6 +42,14 @@ JWT_SECRET=coffee
 
 Tests are implemented with Jest and Supertest. To start Jest in watch mode run `npm test` from the root directory in your command line.
 
+### API Documentation
+
+For documentation on available API endpoints please see the [API Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/APIDOCS.md).
+
+### Data Model
+
+For information on the data model for this project please see the [Data Model Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/DATAMODEL.md).
+
 ## License
 
 This project is licensed under the terms of the MIT license. For more details see the [LICENSE](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/LICENSE) file.
