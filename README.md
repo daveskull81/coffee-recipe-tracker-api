@@ -20,11 +20,11 @@ This project is used as a portfolio piece for my work as a Software Developer. I
 
 ## API Documentation
 
-For documentation on available API endpoints please see the [API Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/APIDOCS.md).
+For documentation on available API endpoints please see the [API Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/docs/APIDOCS.md).
 
 ## Data Model
 
-For information on the data model for this project please see the [Data Model Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/DATAMODEL.md).
+For information on the data model for this project please see the [Data Model Documentation](https://github.com/daveskull81/coffee-recipe-tracker-api/blob/master/docs/DATAMODEL.md).
 
 ## Installation
 

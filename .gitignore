@@ -105,3 +105,6 @@ dist
 
 #Development database
 *.db3
+
+# macOS System
+.DS_Store
