@@ -6,7 +6,7 @@
   "scripts": {
     "server": "nodemon index.js",
     "start": "node index.js",
-    "test": "jest --watch"
+    "test": "cross-env DB_ENV=testing jest --watch"
   },
   "keywords": [
     "coffee"
@@ -34,6 +34,7 @@
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {
+    "cross-env": "^6.0.3",
     "jest": "^24.9.0",
     "nodemon": "^2.0.1",
     "supertest": "^4.0.2"
