@@ -1,5 +1,5 @@
 <h1 align="center">
-    Coffee Recipe Tracker API
+    Coffee Recipe Tracker Backend
 </h1>
 
 Backend (both API and Database) for a Coffee Recipe Tracker application. This repo contains the code for all of the API routes (using Node.js and Express) as well as the database (using Knex).
