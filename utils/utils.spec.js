@@ -1,5 +1,26 @@
 const convertNumToBoolean = require('./convertNumBoolean');
 const removeProperties = require('./removeProperties');
+const db = require('../data/db-config');
+const {
+    add,
+    findById,
+    findAll,
+    update,
+    remove,
+    search
+} = require('./db-helpers');
+
+/**
+ * Tests here provide confirmation the util functions work as expected
+ * and work with the data consistently.
+ * Each of the DB helper methods are tested here
+ * The Methods table is used for testing, but given these tests
+ * are successful it should be confirmation of how they would
+ * work with the other tables since there isn't anything
+ * absolutely unique about each table other than the data they store.
+ * This also confirms the DB helper methods work as expected
+ * with the table that is provided as their first argument.
+ */
 
 describe('Utility functions', () => {
     describe('convertNumToBoolean', () => {
@@ -43,6 +64,68 @@ describe('Utility functions', () => {
             const results = removeProperties(objToRemoveFrom, ['two']);
             expect(results).toBeDefined();
             expect(Object.keys(results).length).toBe(1);
+        });
+    });
+    describe('DB Helpers', () => {
+        beforeEach(async () => {
+            await db('methods').truncate();
+        });
+        it('should insert a coffee method', async () => {
+            await add('methods', { name: 'test', user_id: 1 });
+
+            const methods = await db('methods');
+            expect(methods).toHaveLength(1);
+        });
+        it('should insert the expected coffee method', async () => {
+            await add('methods', { name: 'test', user_id: 1 });
+
+            const methods = await db('methods');
+            expect(methods[0].name).toBe('test');
+        });
+        it('should return the coffee method by its id', async () => {
+            await add('methods', { name: 'test', user_id: 1 });
+            const method = await findById('methods', 1);
+
+            expect(method.name).toBe('test');
+        });
+        it('should return a list of coffee methods', async () => {
+            await add('methods', { name: 'test 1', user_id: 1 });
+            await add('methods', { name: 'test 2', user_id: 1 });
+
+            const methods = await findAll('methods');
+            expect(methods).toHaveLength(2);
+        });
+        it('should update the coffee method', async () => {
+            await add('methods', { name: 'test', user_id: 1 });
+            const [ firstVersion ] = await db('methods');
+
+            expect(firstVersion.name).toBe('test');
+
+            await update('methods', { name: 'updated' }, 1);
+            const [ updatedVersion ] = await db('methods');
+
+            expect(updatedVersion.name).toBe('updated');
+        });
+        it('should find the expected coffee method', async () => {
+            await add('methods', { name: 'test 1', user_id: 1 });
+            await add('methods', { name: 'test 2', user_id: 1 });
+            await add('methods', { name: 'test 3', user_id: 1 });
+
+            const results = await search('methods', 'id', 2);
+            expect(results).toHaveLength(1);
+            expect(results[0].name).toBe('test 2');
+        });
+        it('should remove the expected coffee method', async () => {
+            await add('methods', { name: 'test 1', user_id: 1 });
+            await add('methods', { name: 'test 2', user_id: 1 });
+            await add('methods', { name: 'test 3', user_id: 1 });
+
+            await remove('methods', 2);
+
+            const methods = await db('methods');
+            expect(methods).toHaveLength(2);
+            expect(methods[0].name).toBe('test 1');
+            expect(methods[1].name).toBe('test 3');
         });
     });
 });
