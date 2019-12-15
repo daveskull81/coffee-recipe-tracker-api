@@ -17,6 +17,7 @@ This project is used as a portfolio piece for my work as a Software Developer. I
 * Bcryptjs for hashing user passwords
 * JSON Web Tokens for authentication and protecting routes from public access
 * Backend testing with Jest and Supertest
+* Implementing a test database with usage via an environment variable
 
 ## API Documentation
 
