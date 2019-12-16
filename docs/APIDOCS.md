@@ -31,30 +31,28 @@ When errors occur with the requests a json object will be returned with both a `
 ```
 ## Endpoints
 
-### Summary  
-
-| Route | Method | Description | Requires Auth |
-|---|---|---|---|
-| `/auth/login` | POST | Send user credentials to login to the application | No |
-| `/auth/register` | POST | Send user information to register a new user with the application | No |
-| `/users/:userId/coffees` | GET | Retrieve all of the coffees for a particular user | Yes |
-| `/users/:userId/coffees/:coffeeId` | GET | Retrieve data of a specific coffee | Yes |
-| `/users/:userId/coffees` | POST | Add a new coffee for the user | Yes |
-| `/users/:userId/coffees/:coffeeId` | PUT | Update a specific coffee |Yes |
-| `/users/:userId/coffees/:coffeeId` | DELETE | Remove a specific coffee | Yes |
-| `/users/:userId/methods` | GET | Retrieve all of the methods for a particular user | Yes |
-| `/users/:userId/methods/:methodId` | GET | Retrieve data of a specific method | Yes |
-| `/users/:userId/methods` | POST | Add a new method for the user | Yes |
-| `/users/:userId/methods/:methodId` | PUT | Update a specific method |Yes |
-| `/users/:userId/methods/:methodId` | DELETE | Remove a specific method | Yes |
-| `/users/:userId/recipes` | GET | Retrieve all of the recipes for a particular user | Yes |
-| `/users/:userId/recipes/:recipeId` | GET | Retrieve data of a specific recipe | Yes |
-| `/users/:userId/recipes` | POST | Add a new recipe for the user | Yes |
-| `/users/:userId/recipes/:recipeId` | PUT | Update a specific recipe |Yes |
-| `/users/:userId/recipes/:recipeId` | DELETE | Remove a specific recipe | Yes |
-| `/users/:userId/recipes/:recipeId/notes` | GET | Retrieve all of the notes for a particular recipe | Yes |
-| `/users/:userId/recipes/:recipeId/notes/:notedId` | GET | Retrieve data of a specific note | Yes |
-| `/users/:userId/recipes/:recipeId/notes` | POST | Add a new note for the recipe | Yes |
-| `/users/:userId/recipes/:recipeId/notes/:notedId` | PUT | Update a specific note |Yes |
-| `/users/:userId/recipes/:recipeId/notes/:notedId` | DELETE | Remove a specific note | Yes |
+| Route | Method | Description | Requires Auth | Body | Returns |
+|---|---|---|---|---|---|
+| `/auth/login` | POST | Send user credentials to login to the application | No | | |
+| `/auth/register` | POST | Send user information to register a new user with the application | No | | |
+| `/users/:userId/coffees` | GET | Retrieve all of the coffees for a particular user | Yes | None | |
+| `/users/:userId/coffees/:coffeeId` | GET | Retrieve data of a specific coffee | Yes | None | |
+| `/users/:userId/coffees` | POST | Add a new coffee for the user | Yes | | |
+| `/users/:userId/coffees/:coffeeId` | PUT | Update a specific coffee |Yes | | |
+| `/users/:userId/coffees/:coffeeId` | DELETE | Remove a specific coffee | Yes | None  | |
+| `/users/:userId/methods` | GET | Retrieve all of the methods for a particular user | Yes | None  | |
+| `/users/:userId/methods/:methodId` | GET | Retrieve data of a specific method | Yes | None  | |
+| `/users/:userId/methods` | POST | Add a new method for the user | Yes | | |
+| `/users/:userId/methods/:methodId` | PUT | Update a specific method |Yes | | |
+| `/users/:userId/methods/:methodId` | DELETE | Remove a specific method | Yes | None  | |
+| `/users/:userId/recipes` | GET | Retrieve all of the recipes for a particular user | Yes | None  | |
+| `/users/:userId/recipes/:recipeId` | GET | Retrieve data of a specific recipe | Yes | None  | |
+| `/users/:userId/recipes` | POST | Add a new recipe for the user | Yes | | |
+| `/users/:userId/recipes/:recipeId` | PUT | Update a specific recipe |Yes | | |
+| `/users/:userId/recipes/:recipeId` | DELETE | Remove a specific recipe | Yes | None  | |
+| `/users/:userId/recipes/:recipeId/notes` | GET | Retrieve all of the notes for a particular recipe | Yes | None  | |
+| `/users/:userId/recipes/:recipeId/notes/:notedId` | GET | Retrieve data of a specific note | Yes | None  | |
+| `/users/:userId/recipes/:recipeId/notes` | POST | Add a new note for the recipe | Yes | | |
+| `/users/:userId/recipes/:recipeId/notes/:notedId` | PUT | Update a specific note |Yes | | |
+| `/users/:userId/recipes/:recipeId/notes/:notedId` | DELETE | Remove a specific note | Yes | None  | |
 
