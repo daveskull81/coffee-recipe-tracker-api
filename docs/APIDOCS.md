@@ -59,7 +59,7 @@ When errors occur with the requests a json object will be returned with both a `
 ## Objects
 
 ### Auth Object
-**Required Fields**: `username`, `password`
+**Notes**: `username` and `password` are both required when providing the object in `Login` request.
 ```
 {
 	"username": <STRING>,
@@ -72,5 +72,67 @@ When errors occur with the requests a json object will be returned with both a `
   "id": <INTEGER>,
   "username": <STRING>,
   "token": <STRING>
+}
+```
+
+### Coffee Object
+**Notes**: The `id` property should be omitted when providing the Coffee object create a new object or update an existing object.  
+The `roaster` and `user_id` properties are required when adding a new Coffee object.
+```
+{
+    "id": <INTEGER>,
+    "name": <STRING>,
+    "roaster": <STRING>,
+    "country_of_origin": <STRING>,
+    "region": <STRING>,
+    "processing_method": <STRING>,
+    "roast_level": <STRING>,
+    "user_id": INTEGER
+  }
+```
+
+### Method Object
+**Notes**: The `id` property should be omitted when providing the Method object create a new object or update an existing object.  
+The `name` and `user_id` properties are required when adding a new Method object.
+```
+{
+  "id": <INTEGER>,
+  "name": <STRING>,
+  "user_id": <INTEGER>
+}
+```
+
+### Recipe Object
+**Notes**: The `id` property should be omitted when providing the Recipe object create a new object or update an existing object.  
+The `name`, `user_id`, and `method_id` properties are required when adding a new Recipe object.
+```
+{
+    "id": <INTEGER>,
+    "name": <STRING>,
+    "coffee_weight": <FLOAT>,
+    "total_weight": <FLOAT>,
+    "bloom": <BOOLEAN>,
+    "bloom_time": <INTEGER>,
+    "bloom_weight": <INTEGER>,
+    "time_minutes": <INTEGER>,
+    "time_seconds": <INTEGER>,
+    "grind_size": <STRING>,
+    "rating": <INTEGER>,
+    "water_temp": <FLOAT>,
+    "coffee_id": <INTEGER>,
+    "method_id": <INTEGER>,
+    "user_id": <INTEGER>
+  }
+```
+
+## Note Object
+**Notes**: The `id` property should be omitted when providing the Note object create a new object or update an existing object.  
+The `text` and `recipe_id` properties are required when adding a new Recipe object.
+The `text` property has a max length of `2000` characters.
+```
+{
+  "id": <INTEGER>,
+  "text": <STRING>,
+  "recipe_id": <INTEGER>
 }
 ```
