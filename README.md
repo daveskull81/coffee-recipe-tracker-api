@@ -4,7 +4,7 @@
 
 Backend (both API and Database) for a Coffee Recipe Tracker application. This repo contains the code for all of the API routes (using Node.js and Express) as well as the database (using Knex).
 
-The application solves the problem of keeping track of the different ways someone has made coffee. Home coffee making enthusiasts has many factors to keep track of when brewing coffee. This application allows someone to keep track of the various factors and rate the quality of the resulting cup as well as make notes. This will help them to make better decisions in the future about how to brew coffee for the best tasting results.
+The application solves the problem of keeping track of the different ways someone has made coffee. Home coffee making enthusiasts have many factors to keep track of when brewing coffee. This application allows someone to keep track of those various factors and rate the quality of the resulting cup as well as make notes. This will help them to make better decisions in the future about how to brew coffee for the best tasting results.
 
 This project is used as a portfolio piece for my work as a Software Developer. If you are interested in discussing this further with me please feel free to reach out on [Twitter](https://twitter.com/daveskull81) or on my [website](https://www.daveinden.com).
 
@@ -42,10 +42,18 @@ Visiting `http://localhost:5000/api` you should see a status message like this:
 }
 ```
 
+To setup the database run `npx knex migrate:latest`  
+
+To seed the database with test data run `npx knex seed:run`  
+
+This will include a test user with the username `dave` and password `pass` that you can use to login without creating a new user.
+
+## Deployment
+
 This repo is setup for running the application from Heroku. The following environment variables should be set when in production:
 ```
-DB_ENV=production
-JWT_SECRET=coffee
+DB_ENV=production //needs to be specifically set to this value
+JWT_SECRET=coffee //can be set to any value
 ```
 ## Testing
 
